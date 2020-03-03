@@ -1,0 +1,32 @@
+---
+kind: pipeline
+name: default-linux-amd64
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: docker-mirror-k3s
+  image: docker
+  volumes:
+    - name: docker
+      path: /var/run/docker.sock
+  environment:
+    PASSWORD:
+      from_secret: docker_password
+    USERNAME:
+      from_secret: docker_username
+  commands:
+    - docker login -u $USERNAME -p $PASSWORD
+    - cat scripts/k3s-images-mirror | ./scripts/docker-mirror.sh
+  settings:
+    custom_dns: 1.1.1.1
+  when:
+    instance:
+      - drone-publish.rancher.io
+    ref:
+      include:
+        - "refs/heads/master"
+    event:
+      - push
