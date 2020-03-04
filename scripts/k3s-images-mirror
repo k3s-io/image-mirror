@@ -1,0 +1,4 @@
+# The image script will follow the format:
+# ${image_destination}:${tag} ${arch1};${image_source1}:${tag} ${arch2};${image_source1}:${tag} ${arch3};${image_source1}:${tag} ...
+k3sio/nginx-ingress-controller:0.30.0 amd64;quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.30.0 arm64;quay.io/kubernetes-ingress-controller/nginx-ingress-controller-arm64:0.30.0 arm;quay.io/kubernetes-ingress-controller/nginx-ingress-controller-arm:0.30.0
+# Do not remove this line. This is to add line feed so script won't break
