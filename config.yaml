@@ -24,7 +24,7 @@ Artifacts:
   - 3.10.2
   TargetArtifactName: mirrored-pause
 Repositories:
-- BaseUrl: ghcr.io/vitorsavian
+- BaseUrl: ghcr.io/k3s-io
   DefaultTarget: true
   Registry: ghcr.io
   RepoAuth: true

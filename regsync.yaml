@@ -8,29 +8,29 @@ defaults:
   userAgent: k3s-image-mirror
 sync:
 - source: coredns/coredns:1.14.6
-  target: ghcr.io/vitorsavian/mirrored-coredns-coredns:1.14.6
+  target: ghcr.io/k3s-io/mirrored-coredns-coredns:1.14.6
   type: image
 - source: coredns/coredns:1.14.7
-  target: ghcr.io/vitorsavian/mirrored-coredns-coredns:1.14.7
+  target: ghcr.io/k3s-io/mirrored-coredns-coredns:1.14.7
   type: image
 - source: docker.io/rancher/local-path-provisioner:v0.0.37
-  target: ghcr.io/vitorsavian/mirrored-local-path-provisioner:v0.0.37
+  target: ghcr.io/k3s-io/mirrored-local-path-provisioner:v0.0.37
   type: image
 - source: library/busybox:1.37.0
-  target: ghcr.io/vitorsavian/mirrored-library-busybox:1.37.0
+  target: ghcr.io/k3s-io/mirrored-library-busybox:1.37.0
   type: image
 - source: library/traefik:3.7.12
-  target: ghcr.io/vitorsavian/mirrored-library-traefik:3.7.12
+  target: ghcr.io/k3s-io/mirrored-library-traefik:3.7.12
   type: image
 - source: library/traefik:3.7.13
-  target: ghcr.io/vitorsavian/mirrored-library-traefik:3.7.13
+  target: ghcr.io/k3s-io/mirrored-library-traefik:3.7.13
   type: image
 - source: registry.k8s.io/metrics-server/metrics-server:v0.9.0
-  target: ghcr.io/vitorsavian/mirrored-metrics-server:v0.9.0
+  target: ghcr.io/k3s-io/mirrored-metrics-server:v0.9.0
   type: image
 - source: registry.k8s.io/pause:3.10
-  target: ghcr.io/vitorsavian/mirrored-pause:3.10
+  target: ghcr.io/k3s-io/mirrored-pause:3.10
   type: image
 - source: registry.k8s.io/pause:3.10.2
-  target: ghcr.io/vitorsavian/mirrored-pause:3.10.2
+  target: ghcr.io/k3s-io/mirrored-pause:3.10.2
   type: image
