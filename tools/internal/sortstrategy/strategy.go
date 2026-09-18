@@ -2,19 +2,10 @@ package sortstrategy
 
 import (
 	"fmt"
-	"slices"
 	"sort"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/maruel/natural"
 )
-
-func Natural(t []string) ([]string, error) {
-	st := make([]string, len(t))
-	copy(st, t)
-	slices.SortFunc(st, natural.Compare)
-	return st, nil
-}
 
 func Semver(t []string) ([]string, error) {
 	vs := make([]*semver.Version, 0, len(t))

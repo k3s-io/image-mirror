@@ -63,18 +63,9 @@ func (artifact *Artifact) setDefaults() error {
 	if len(parts) < 2 {
 		return fmt.Errorf("source artifact split into %d parts (>=2 parts expected)", len(parts))
 	}
-	if parts[0] == "dp.apps.rancher.io" {
-		// AppCo artifacts have only one significant part in their reference.
-		// For example, in dp.apps.rancher.io/containers/openjdk,
-		// dp.apps.rancher.io/containers is the repository and openjdk is
-		// the significant part.
-		artifactName := parts[len(parts)-1]
-		artifact.defaultTargetArtifactName = "appco-" + artifactName
-	} else {
-		repoName := parts[len(parts)-2]
-		artifactName := parts[len(parts)-1]
-		artifact.defaultTargetArtifactName = "mirrored-" + repoName + "-" + artifactName
-	}
+	repoName := parts[len(parts)-2]
+	artifactName := parts[len(parts)-1]
+	artifact.defaultTargetArtifactName = "mirrored-" + repoName + "-" + artifactName
 
 	artifact.excludeAllTags = false
 	artifact.excludedTags = map[string]struct{}{}

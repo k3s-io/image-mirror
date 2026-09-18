@@ -7,7 +7,6 @@ replace gopkg.in/yaml.v3 => go.yaml.in/yaml/v3 v3.0.1
 require (
 	github.com/Masterminds/semver/v3 v3.4.0
 	github.com/google/go-github/v80 v80.0.0
-	github.com/maruel/natural v1.3.0
 	github.com/migueleliasweb/go-github-mock v1.5.0
 	github.com/stretchr/testify v1.11.1
 	github.com/urfave/cli/v3 v3.10.0

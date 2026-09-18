@@ -57,21 +57,7 @@ func (r *Registry) GetUpdateArtifacts() ([]*config.Artifact, error) {
 	}
 
 	if r.Latest {
-		var sortedTags []string
-		var sortingErr error
-
-		// In the Semver specification, dashes are used to define pre-release
-		// versions, which have lower precedence than the associated normal
-		// versions. This is not the meaning that dashes convey on the AppCo
-		// images, where dashes are used to denote revisions, which have a
-		// higher precedence order than the normal version. That's why we must
-		// use natural sorting for getting the last tag of the AppCo images. For
-		// more info, check https://semver.org/#spec-item-9.
-		if r.RegistryName == "dp.apps.rancher.io" {
-			sortedTags, sortingErr = sortstrategy.Natural(filteredTags)
-		} else {
-			sortedTags, sortingErr = sortstrategy.Semver(filteredTags)
-		}
+		sortedTags, sortingErr := sortstrategy.Semver(filteredTags)
 		if sortingErr != nil {
 			return nil, fmt.Errorf("failed to sort artifact tags: %w", sortingErr)
 		}
@@ -167,11 +153,6 @@ func (r *Registry) getRegistryInformationFromArtifact() (ArtifactRegistry, error
 		}, nil
 	case "gcr.io":
 		return &GoogleRegistry{
-			Namespace:  namespace,
-			Repository: repository,
-		}, nil
-	case "dp.apps.rancher.io":
-		return &AppCoRegistry{
 			Namespace:  namespace,
 			Repository: repository,
 		}, nil

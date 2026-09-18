@@ -3,12 +3,7 @@
 This repo is dedicated to mirroring the OCI artifacts that K3s ships to the
 places K3s needs them to be. Currently that is the set of images in the K3s
 airgap image list that are not built by K3s itself: CoreDNS, Traefik,
-metrics-server, busybox and pause.
-
-> [!NOTE]
-> This repository is derived from [`rancher/artifact-mirror`](https://github.com/rancher/artifact-mirror),
-> trimmed down to the artifacts that K3s owns. Artifacts for Rancher and other
-> projects continue to live there.
+metrics-server, local-path-provisioner, busybox and pause.
 
 ## Overview
 
@@ -41,9 +36,10 @@ after the first mirror run, set its visibility to public.
 
 Mirroring only ever happens in CI. `config.yaml` deliberately carries no
 credentials: the [Mirror Artifacts](.github/workflows/mirror.yml)
-workflow logs into `ghcr.io` with `docker/login-action`, using `github.actor`
-and the workflow's `GITHUB_TOKEN` (which needs the `packages: write`
-permission), and `regsync` picks that up from `~/.docker/config.json`.
+workflow logs into `ghcr.io` with `docker/login-action`, using
+`github.repository_owner` and the workflow's `GITHUB_TOKEN` (which needs the
+`packages: write` permission), and `regsync` picks that up from
+`~/.docker/config.json`.
 
 As a consequence, running `regsync once` locally can pull but cannot push
 unless you have run `docker login ghcr.io` yourself. Everything else -
@@ -52,15 +48,9 @@ works anonymously and needs no credentials at all.
 
 ### Artifact Prefixes
 
-Every artifact that is mirrored by this repository should have a prefix that
-communicates some information about it. The only exception is legacy artifacts:
-in the past the Rancher project did not add prefixes to mirrored artifacts.
-All new artifacts must have a prefix.
-
-| Prefix | Meaning |
-| ------------- | ------------- |
-| `mirrored-` | The artifact was mirrored from somewhere else. This is the default choice, and is used when the below prefixes do not apply.
-| `hardened-` | The artifact has been hardened. This repository does not concern itself with hardened artifacts.
+Every artifact mirrored by this repository is prefixed with `mirrored-`, which
+says that it was copied from somewhere else rather than built here. There are
+no exceptions - this namespace has no history predating the convention.
 
 ## File Purpose/Structure
 

@@ -327,14 +327,6 @@ func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
 			*errs = append(*errs, wrappedErr)
 			continue
 		}
-		// Workflows that are triggered by pull requests from forks (i.e.
-		// every human-created PR in this repo) cannot get the ID token that
-		// is needed to get secrets from EIO's setup. Pulling artifacts from
-		// the application collection requires one of these secrets. So,
-		// we do not try pulling the artifact if it is from the appco.
-		if strings.HasPrefix(newTagArtifact.SourceArtifact, "dp.apps.rancher.io") {
-			continue
-		}
 		for _, newTag := range newTagArtifact.Tags {
 			_, err := oras.Copy(context.Background(), repo, newTag, store, newTag, oras.DefaultCopyOptions)
 			if err != nil {
