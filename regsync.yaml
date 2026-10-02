@@ -14,7 +14,7 @@ sync:
   target: ghcr.io/k3s-io/mirrored-coredns-coredns:1.14.7
   type: image
 - source: docker.io/rancher/local-path-provisioner:v0.0.37
-  target: ghcr.io/k3s-io/mirrored-local-path-provisioner:v0.0.37
+  target: ghcr.io/k3s-io/local-path-provisioner:v0.0.37
   type: image
 - source: library/busybox:1.37.0
   target: ghcr.io/k3s-io/mirrored-library-busybox:1.37.0

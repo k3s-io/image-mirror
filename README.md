@@ -20,10 +20,10 @@ Once `regsync.yaml` has been updated, you may run `regsync` via the command
 ```
 regsync once --verbosity error --config regsync.yaml --missing
 ```
-`autoupdate.yaml` is used to configure automatic updates for artifacts. When
-an update is found, the automation creates a pull request that a human user
-can then review and merge. See [`autoupdate.yaml`](#autoupdateyaml) for
-more information.
+`autoupdate.yaml` configures the `autoupdate` subcommand, which looks for new
+upstream tags and opens a pull request adding them. It is not scheduled in CI;
+run it by hand when needed. See [`autoupdate.yaml`](#autoupdateyaml) for more
+information.
 
 ### Adding New Artifacts
 
@@ -42,15 +42,19 @@ workflow logs into `ghcr.io` with `docker/login-action`, using
 `~/.docker/config.json`.
 
 As a consequence, running `regsync once` locally can pull but cannot push
-unless you have run `docker login ghcr.io` yourself. Everything else -
-listing source tags for `autoupdate`, and the pulls that `validate` does -
-works anonymously and needs no credentials at all.
+unless you have run `docker login ghcr.io` yourself. The pulls that `validate`
+does work anonymously. `autoupdate` mostly does too, except that Docker Hub
+stops serving anonymous callers after the 10th page of tags. Repositories with
+more than 1000 tags, such as `library/traefik`, need `DOCKER_USERNAME` and
+`DOCKER_PASSWORD` set in the environment.
 
 ### Artifact Prefixes
 
-Every artifact mirrored by this repository is prefixed with `mirrored-`, which
-says that it was copied from somewhere else rather than built here. There are
-no exceptions - this namespace has no history predating the convention.
+Artifacts mirrored by this repository are prefixed with `mirrored-`, which
+says that they were copied from somewhere else rather than built here.
+
+The one exception is `local-path-provisioner`, which keeps its upstream name
+and is only mirrored here until it is published to `ghcr.io` directly.
 
 ## File Purpose/Structure
 
