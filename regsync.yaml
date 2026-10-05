@@ -16,14 +16,65 @@ sync:
 - source: docker.io/rancher/local-path-provisioner:v0.0.37
   target: ghcr.io/k3s-io/local-path-provisioner:v0.0.37
   type: image
+- source: docker.io/rancher/shell:v0.1.28
+  target: ghcr.io/k3s-io/shell:v0.1.28
+  type: image
+- source: docker.io/rancher/systemd-node:v0.0.8
+  target: ghcr.io/k3s-io/systemd-node:v0.0.8
+  type: image
+- source: library/busybox:1.36.1
+  target: ghcr.io/k3s-io/mirrored-library-busybox:1.36.1
+  type: image
 - source: library/busybox:1.37.0
   target: ghcr.io/k3s-io/mirrored-library-busybox:1.37.0
+  type: image
+- source: library/nginx:1.29.1-alpine
+  target: ghcr.io/k3s-io/mirrored-library-nginx:1.29.1-alpine
   type: image
 - source: library/traefik:3.7.12
   target: ghcr.io/k3s-io/mirrored-library-traefik:3.7.12
   type: image
 - source: library/traefik:3.7.13
   target: ghcr.io/k3s-io/mirrored-library-traefik:3.7.13
+  type: image
+- source: longhornio/backing-image-manager:v1.10.1
+  target: ghcr.io/k3s-io/mirrored-longhornio-backing-image-manager:v1.10.1
+  type: image
+- source: longhornio/csi-attacher:v4.10.0-20251030
+  target: ghcr.io/k3s-io/mirrored-longhornio-csi-attacher:v4.10.0-20251030
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
+  target: ghcr.io/k3s-io/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
+  type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251030
+  target: ghcr.io/k3s-io/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
+  type: image
+- source: longhornio/csi-resizer:v1.14.0-20251030
+  target: ghcr.io/k3s-io/mirrored-longhornio-csi-resizer:v1.14.0-20251030
+  type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251030
+  target: ghcr.io/k3s-io/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
+  type: image
+- source: longhornio/livenessprobe:v2.17.0-20251030
+  target: ghcr.io/k3s-io/mirrored-longhornio-livenessprobe:v2.17.0-20251030
+  type: image
+- source: longhornio/longhorn-engine:v1.10.1
+  target: ghcr.io/k3s-io/mirrored-longhornio-longhorn-engine:v1.10.1
+  type: image
+- source: longhornio/longhorn-instance-manager:v1.10.1
+  target: ghcr.io/k3s-io/mirrored-longhornio-longhorn-instance-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1
+  target: ghcr.io/k3s-io/mirrored-longhornio-longhorn-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.1
+  target: ghcr.io/k3s-io/mirrored-longhornio-longhorn-share-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-ui:v1.10.1
+  target: ghcr.io/k3s-io/mirrored-longhornio-longhorn-ui:v1.10.1
+  type: image
+- source: longhornio/support-bundle-kit:v0.0.71
+  target: ghcr.io/k3s-io/mirrored-longhornio-support-bundle-kit:v0.0.71
   type: image
 - source: registry.k8s.io/metrics-server/metrics-server:v0.9.0
   target: ghcr.io/k3s-io/mirrored-metrics-server:v0.9.0

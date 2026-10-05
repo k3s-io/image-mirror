@@ -7,13 +7,64 @@ Artifacts:
   Tags:
   - v0.0.37
   TargetArtifactName: local-path-provisioner
+- SourceArtifact: docker.io/rancher/shell
+  Tags:
+  - v0.1.28
+  TargetArtifactName: shell
+- SourceArtifact: docker.io/rancher/systemd-node
+  Tags:
+  - v0.0.8
+  TargetArtifactName: systemd-node
 - SourceArtifact: library/busybox
   Tags:
+  - 1.36.1
   - 1.37.0
+- SourceArtifact: library/nginx
+  Tags:
+  - 1.29.1-alpine
 - SourceArtifact: library/traefik
   Tags:
   - 3.7.12
   - 3.7.13
+- SourceArtifact: longhornio/backing-image-manager
+  Tags:
+  - v1.10.1
+- SourceArtifact: longhornio/csi-attacher
+  Tags:
+  - v4.10.0-20251030
+- SourceArtifact: longhornio/csi-node-driver-registrar
+  Tags:
+  - v2.15.0-20251030
+- SourceArtifact: longhornio/csi-provisioner
+  Tags:
+  - v5.3.0-20251030
+- SourceArtifact: longhornio/csi-resizer
+  Tags:
+  - v1.14.0-20251030
+- SourceArtifact: longhornio/csi-snapshotter
+  Tags:
+  - v8.4.0-20251030
+- SourceArtifact: longhornio/livenessprobe
+  Tags:
+  - v2.17.0-20251030
+- SourceArtifact: longhornio/longhorn-engine
+  Tags:
+  - v1.10.1
+- SourceArtifact: longhornio/longhorn-instance-manager
+  Tags:
+  - v1.10.1
+- SourceArtifact: longhornio/longhorn-manager
+  Tags:
+  - v1.10.1
+- SourceArtifact: longhornio/longhorn-share-manager
+  Tags:
+  - v1.10.1
+- SourceArtifact: longhornio/longhorn-ui
+  Tags:
+  - v1.10.1
+- SourceArtifact: longhornio/support-bundle-kit
+  Tags:
+  - v0.0.71
 - SourceArtifact: registry.k8s.io/metrics-server/metrics-server
   Tags:
   - v0.9.0
