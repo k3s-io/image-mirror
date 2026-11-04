@@ -7,11 +7,13 @@ Artifacts:
   Tags:
   - v0.0.37
   TargetArtifactName: local-path-provisioner
-- SourceArtifact: docker.io/rancher/shell
+- DoNotMirror: true
+  SourceArtifact: docker.io/rancher/shell
   Tags:
   - v0.1.28
   TargetArtifactName: shell
-- SourceArtifact: docker.io/rancher/systemd-node
+- DoNotMirror: true
+  SourceArtifact: docker.io/rancher/systemd-node
   Tags:
   - v0.0.8
   TargetArtifactName: systemd-node
@@ -19,50 +21,65 @@ Artifacts:
   Tags:
   - 1.36.1
   - 1.37.0
-- SourceArtifact: library/nginx
+- DoNotMirror: true
+  SourceArtifact: library/nginx
   Tags:
   - 1.29.1-alpine
 - SourceArtifact: library/traefik
   Tags:
   - 3.7.12
   - 3.7.13
-- SourceArtifact: longhornio/backing-image-manager
+  - 3.7.15
+- DoNotMirror: true
+  SourceArtifact: longhornio/backing-image-manager
   Tags:
   - v1.10.1
-- SourceArtifact: longhornio/csi-attacher
+- DoNotMirror: true
+  SourceArtifact: longhornio/csi-attacher
   Tags:
   - v4.10.0-20251030
-- SourceArtifact: longhornio/csi-node-driver-registrar
+- DoNotMirror: true
+  SourceArtifact: longhornio/csi-node-driver-registrar
   Tags:
   - v2.15.0-20251030
-- SourceArtifact: longhornio/csi-provisioner
+- DoNotMirror: true
+  SourceArtifact: longhornio/csi-provisioner
   Tags:
   - v5.3.0-20251030
-- SourceArtifact: longhornio/csi-resizer
+- DoNotMirror: true
+  SourceArtifact: longhornio/csi-resizer
   Tags:
   - v1.14.0-20251030
-- SourceArtifact: longhornio/csi-snapshotter
+- DoNotMirror: true
+  SourceArtifact: longhornio/csi-snapshotter
   Tags:
   - v8.4.0-20251030
-- SourceArtifact: longhornio/livenessprobe
+- DoNotMirror: true
+  SourceArtifact: longhornio/livenessprobe
   Tags:
   - v2.17.0-20251030
-- SourceArtifact: longhornio/longhorn-engine
+- DoNotMirror: true
+  SourceArtifact: longhornio/longhorn-engine
   Tags:
   - v1.10.1
-- SourceArtifact: longhornio/longhorn-instance-manager
+- DoNotMirror: true
+  SourceArtifact: longhornio/longhorn-instance-manager
   Tags:
   - v1.10.1
-- SourceArtifact: longhornio/longhorn-manager
+- DoNotMirror: true
+  SourceArtifact: longhornio/longhorn-manager
   Tags:
   - v1.10.1
-- SourceArtifact: longhornio/longhorn-share-manager
+- DoNotMirror: true
+  SourceArtifact: longhornio/longhorn-share-manager
   Tags:
   - v1.10.1
-- SourceArtifact: longhornio/longhorn-ui
+- DoNotMirror: true
+  SourceArtifact: longhornio/longhorn-ui
   Tags:
   - v1.10.1
-- SourceArtifact: longhornio/support-bundle-kit
+- DoNotMirror: true
+  SourceArtifact: longhornio/support-bundle-kit
   Tags:
   - v0.0.71
 - SourceArtifact: registry.k8s.io/metrics-server/metrics-server
