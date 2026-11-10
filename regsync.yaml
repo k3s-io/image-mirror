@@ -22,6 +22,9 @@ sync:
 - source: library/busybox:1.37.0
   target: ghcr.io/k3s-io/mirrored-library-busybox:1.37.0
   type: image
+- source: library/busybox:1.38.0
+  target: ghcr.io/k3s-io/mirrored-library-busybox:1.38.0
+  type: image
 - source: library/traefik:3.7.12
   target: ghcr.io/k3s-io/mirrored-library-traefik:3.7.12
   type: image
